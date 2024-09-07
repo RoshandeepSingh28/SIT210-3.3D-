@@ -2,8 +2,8 @@
 #include <WiFiNINA.h>
 #include <ArduinoMqttClient.h>
 
-char wifiSSID[] = "realme";
-char wifiPassword[] = "Realme25";
+char wifiSSID[] = "oplus_co_apdmkd";
+char wifiPassword[] = "tohm3279";
 
 
 const int ledPin = 6; 
