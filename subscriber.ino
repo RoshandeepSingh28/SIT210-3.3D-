@@ -67,14 +67,34 @@ void connectToMQTTBroker() {
 }
 
 void processMessage(String message) {
-  if (message == "Roshandeep") {  
-   Serial.println("Wave Detected");
+  if (message == "Wave") {
+    Serial.println("Wave Detected");
+    flashLEDWavePattern();
+  } 
+  else if (message == "Pat") {
+    Serial.println("Pat Detected");
+    flashLEDPatPattern();
+  }
+}
+
+void flashLEDWavePattern() {
   for (int i = 0; i < 3; i++) {
     digitalWrite(ledPin, HIGH);
     delay(500);
     digitalWrite(ledPin, LOW);
     delay(500);
   }
+}
 
+void flashLEDPatPattern() {
+  for (int i = 0; i < 2; i++) {
+    digitalWrite(ledPin, HIGH);
+    delay(200);
+    digitalWrite(ledPin, LOW);
+    delay(200);
   }
+  delay(500);
+  digitalWrite(ledPin, HIGH);
+  delay(1000);
+  digitalWrite(ledPin, LOW);
 }
