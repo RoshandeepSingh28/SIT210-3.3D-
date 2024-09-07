@@ -91,13 +91,18 @@ float MeasureDistance() {
   return (duration * speedOfSound) / 2;
 }
 
-void sendmessage() {
+void sendMessage() {
   if (distance > 0 && distance < 15) {
     mqttClient.beginMessage(mqttTopic);
-    mqttClient.print("Roshandeep"); 
+    if (distance < 10) {
+      mqttClient.print("Wave");
+      Serial.println("Wave Message Sent!");
+    } else {
+      mqttClient.print("Pat");
+      Serial.println("Pat Message Sent!");
+    }
+
     mqttClient.endMessage();
-    lastMessage = "Wave";
-    Serial.println("Message Sent!");
     delay(3000);  
   }
 }
